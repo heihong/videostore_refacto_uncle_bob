@@ -1,0 +1,14 @@
+{
+  "name": "videostore",
+  "version": "1.0.0",
+  "description": "Videostore kata - uncle bob style",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michelle AVOMO",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  }
+}
