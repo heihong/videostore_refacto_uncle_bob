@@ -1,7 +1,9 @@
-# Created by .ignore support plugin (hsz.mobi)
-/node_modules/
-/.idea/
-/javascript/node_modules/
+.idea/
+.vs/
+node_modules/
+/csharp/**/bin/
+/csharp/**/obj/
+/csharp/packages
 /java/.gradle/
 /java/build/
 /java/out/
