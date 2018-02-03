@@ -56,3 +56,27 @@ BUILD SUCCESSFUL in 2s
 
   4 passing
 ```
+
+### TypeScript
+
+- Aller dans le répertoire `typescript`
+- Ouvrir une console
+- Installer les packages npm : `npm i` ou `yarn`
+- Le moteur des tests unitaires est [jest](https://facebook.github.io/jest/) combiné avec [ts-jest](https://github.com/kulshekhar/ts-jest) pour supporter les fichiers TypeScript :
+  - Exécuter la commande `npm test` en console pour lancer les tests en one shot. Vérifier l'obtention de 4 tests passants comme dans la sortie ci-dessous.
+  - Utiliser ensuite `npm run tdd` en mode watch : les tests sont lancés à chaque enregistrement d'une modification dans un fichier.
+
+```txt
+ PASS  src\videostore.spec.ts
+  VideoStore
+    ✔️ test single NewRelease statement
+    ✔️ test dual NewRelease statement
+    ✔️ test single children statement
+    ✔️ test multiple regular statement
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        2.37s
+Ran all test suites.
+```
