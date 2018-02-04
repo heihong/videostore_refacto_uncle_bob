@@ -12,14 +12,20 @@ export class Report {
     print() {
         return this.printHeader() +
                this.printLines() +
-               this.printFooter(
-                    this.computeTotalAmount(),
-                    this.computeFrequentRenterPoints());
+               this.printFooter();
     }
 
-    private printFooter(totalAmount: number, frequentRenterPoints: number) {
-        return 'You owed ' + totalAmount.toFixed(1) + '\n'
-            + 'You earned ' + frequentRenterPoints + ' frequent renter points \n';
+    private printFooter() {
+        return 'You owed ' + this.computeTotalAmount().toFixed(1) + '\n'
+            + 'You earned ' + this.computeTotalPoints() + ' frequent renter points\n';
+    }
+
+    private computeTotalPoints() {
+        return this._rentals.reduce((result, rental) => result + rental.computePoints(), 0);
+    }
+
+    private computeTotalAmount() {
+        return this._rentals.reduce((result, rental) => result + rental.computeAmount(), 0);
     }
 
     private printHeader() {
@@ -28,15 +34,7 @@ export class Report {
 
     private printLines() {
         return this._rentals.reduce((result, rental) => result
-            + '\t' + rental.movie.title
+            + '\t' + rental.getMovieTitle()
             + '\t' + rental.computeAmount().toFixed(1) + '\n', '');
-    }
-
-    private computeFrequentRenterPoints() {
-        return this._rentals.reduce((result, rental) => result + rental.computePoints(), 0);
-    }
-
-    private computeTotalAmount() {
-        return this._rentals.reduce((result, rental) => result + rental.computeAmount(), 0);
     }
 }
