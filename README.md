@@ -80,3 +80,8 @@ Snapshots:   0 total
 Time:        2.37s
 Ran all test suites.
 ```
+
+Note:
+
+- La branche `rde-ts` contient le résultat d'un refactoring poussé (pendant plusieurs heures) du code TypeScript, effectué avec [Rider](https://www.jetbrains.com/rider/).
+- Merci de ne le regarder qu'après le TP.
