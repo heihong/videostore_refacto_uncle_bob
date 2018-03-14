@@ -2,31 +2,32 @@
 
 class Report {
 
-    constructor() {
+    constructor(customer) {
+        this.customer = customer || null;
     }
 
-    makeHeader(customer) {
-        return 'Rental Record for ' + customer.getName() + '\n';
+    makeHeader() {
+        return 'Rental Record for ' + this.customer.getName() + '\n';
     }
 
-    makeContainer(customer) {
+    makeContainer() {
         let result = "";
-        for (let rental of customer.rentals) {
+        for (let rental of this.customer.rentals) {
             result += '\t' + rental.getTitle() + '\t'
                 + rental.getAmount() + '\n';
         }
         return result
     }
 
-    makeFooter(customer) {
-        return 'You owed ' + customer.getTotalAmount() + '\n'
-            + 'You earned ' + customer.getTotalPoints() + ' frequent renter points \n';
+    makeFooter() {
+        return 'You owed ' + this.customer.getTotalAmount() + '\n'
+            + 'You earned ' + this.customer.getTotalPoints() + ' frequent renter points \n';
     }
 
-    makeStatement(customer) {
-        return this.makeHeader(customer) +
-            this.makeContainer(customer) +
-            this.makeFooter(customer);
+    makeStatement() {
+        return this.makeHeader() +
+            this.makeContainer() +
+            this.makeFooter();
     }
 
 

@@ -2,17 +2,17 @@ let assert = require('assert');
 let Report = require('../app/domain/report/report');
 let Rental = require('../app/domain/rental/rental');
 const Customer = require('../app/domain/customer/customer');
-const NewRelease = require('../app/domain/movie/types/newRelease');
-const Children = require('../app/domain/movie/types/children');
 const Regular = require('../app/domain/movie/types/regular');
 
 describe('Report', function () {
-    let customer, regular_1, daysRented_1, rental_1, regular_2, daysRented_2,
-        ental_2, regular_3, daysRented_3, rental_3;
+    let report, customer, regular_1, daysRented_1, rental_1, regular_2, daysRented_2,
+        rental_2, regular_3, daysRented_3, rental_3;
 
     beforeEach('initialize common variables', function () {
 
         customer = new Customer("Customer");
+
+        report = new Report(customer);
 
         regular_1 = new Regular("Regular_1");
         daysRented_1 = 1;
@@ -33,7 +33,7 @@ describe('Report', function () {
 
     it('test makeHeader', function () {
         assert.equal("Rental Record for Customer\n",
-            report.makeHeader(customer),
+            report.makeHeader(),
             'should be equal')
     });
 
@@ -41,7 +41,7 @@ describe('Report', function () {
 
         assert.equal("\tRegular_1\t2\n\tRegular_2\t2\n" +
             "\tRegular_3\t3.5\n",
-            report.makeContainer(customer),
+            report.makeContainer(),
             'should be equal')
     });
 
@@ -49,7 +49,7 @@ describe('Report', function () {
         assert.equal(
             "You owed 7.5\n" +
             "You earned 3 frequent renter points \n",
-            report.makeFooter(customer),
+            report.makeFooter(),
             'should be equal')
     });
 
@@ -58,7 +58,7 @@ describe('Report', function () {
             "\tRegular_1\t2\n\tRegular_2\t2\n" +
             "\tRegular_3\t3.5\n" +
             "You owed 7.5\nYou earned 3 frequent renter points \n",
-            report.makeStatement(customer),
+            report.makeStatement(),
             'should be equal')
     });
 });

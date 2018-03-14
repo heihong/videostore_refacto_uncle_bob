@@ -2,8 +2,8 @@
 
 class Rental {
     constructor(movie, daysRented) {
-        this.movie = (movie) ? movie : null;
-        this.daysRented = (daysRented) ? daysRented : 0;
+        this.movie = movie || null;
+        this.daysRented = daysRented || 0;
     }
 
     getTitle() {
