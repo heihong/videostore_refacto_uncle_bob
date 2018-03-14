@@ -3,8 +3,8 @@
 class Movie {
     constructor(title, priceCode) {
         this.title = title;
-        this.points = 0;
-        this.amount = parseInt(0);
+        this.points = -1;
+        this.amount = -1;
     }
 
 
@@ -20,7 +20,7 @@ class Movie {
         return this.amount;
     }
 
-    getPoint() {
+    getPoints() {
         return this.points;
     }
 }
