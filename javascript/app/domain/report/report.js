@@ -1,9 +1,9 @@
 'use strict';
-const Customer = require('../customer/customer');
 
-class Summary {
+class Report {
 
-	constructor(){}
+    constructor() {
+    }
 
     makeHeader(customer) {
         return 'Rental Record for ' + customer.getName() + '\n';
@@ -11,7 +11,7 @@ class Summary {
 
     makeContainer(customer) {
         let result = "";
-        for(let rental of customer.rentals){
+        for (let rental of customer.rentals) {
             result += '\t' + rental.getTitle() + '\t'
                 + rental.getAmount() + '\n';
         }
@@ -19,18 +19,17 @@ class Summary {
     }
 
     makeFooter(customer) {
-        return'You owed ' + customer.getTotalAmount() + '\n'
+        return 'You owed ' + customer.getTotalAmount() + '\n'
             + 'You earned ' + customer.getTotalPoints() + ' frequent renter points \n';
     }
 
     makeStatement(customer) {
-		return  this.makeHeader(customer) +
-                this.makeContainer(customer) +
-                this.makeFooter(customer);
-	}
-
+        return this.makeHeader(customer) +
+            this.makeContainer(customer) +
+            this.makeFooter(customer);
+    }
 
 
 }
 
-module.exports = Summary;
+module.exports = Report;

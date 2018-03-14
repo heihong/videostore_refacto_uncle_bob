@@ -1,12 +1,12 @@
 'use strict';
 
-class Customer{
+class Customer {
 
-    constructor(name){
-        this.name = (name) ? name : "";
+    constructor(name) {
+        this.name = name || "";
         this.rentals = [];
-        this.totalAmount = parseInt(0);
-        this.frequentRenterPoints = 0;
+        this.totalAmount = -1;
+        this.frequentRenterPoints = -1;
     }
 
     getName() {
@@ -21,36 +21,28 @@ class Customer{
         return this.rentals;
     }
 
-    getTotalAmount(){
-        if(this.totalAmount == parseInt(0)){
-            this.totalAmount = this.calculateAmount();
+    getTotalAmount() {
+        if (this.totalAmount === -1) {
+            this.totalAmount = this.sumAllRentalAmount();
         }
 
         return this.totalAmount;
     }
 
-    getTotalPoints(){
-        if(this.frequentRenterPoints == 0){
-            this.frequentRenterPoints = this.calculatePoints();
+    getTotalPoints() {
+        if (this.frequentRenterPoints === -1) {
+            this.frequentRenterPoints = this.sumAllRentalPoint();
         }
 
         return this.frequentRenterPoints;
     }
 
-    calculateAmount(){
-        let amount = parseInt(0);
-        for(let rental of this.rentals){
-            amount += rental.getAmount();
-        }
-        return amount;
+    sumAllRentalAmount() {
+        return this.rentals.reduce((total, rental) => total + rental.getAmount(), 0);
     }
 
-    calculatePoints(){
-        let frequentRenterPoints = 0;
-        for(let rental of this.rentals){
-            frequentRenterPoints += rental.getPoints();
-        }
-        return frequentRenterPoints;
+    sumAllRentalPoint() {
+        return this.rentals.reduce((total, rental) => total + rental.getPoints(), 0);
     }
 }
 
