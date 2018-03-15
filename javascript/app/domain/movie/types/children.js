@@ -3,21 +3,23 @@
 const Movie = require('../movie');
 
 class Children extends Movie {
-    constructor(name, movie) {
-        super(name, movie);
-        this.amount = 1.5;
-        this.freeDay = 3;
+    constructor(title) {
+        super(title);
+        this.initialCharge = 1.5;
+        this.dayNoExtraCharge = 3;
+        this.ratePerExtraDay = 1.5;
     }
 
     getAmount(daysRented) {
-        let totalAmount = this.amount;
-        if (daysRented > this.freeDay)
-            totalAmount += (daysRented - this.freeDay) * this.amount;
+        let totalAmount = this.initialCharge;
+        if (daysRented > this.dayNoExtraCharge)
+            totalAmount += (daysRented - this.dayNoExtraCharge) * this.ratePerExtraDay;
 
         return totalAmount;
     }
 
     getPoints() {
+
         return 1;
     }
 }

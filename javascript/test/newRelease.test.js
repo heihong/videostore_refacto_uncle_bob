@@ -8,7 +8,7 @@ describe('NewRelease', function () {
 
     let customer, children, daysRented, rental;
 
-    beforeEach('initialize common variables', function () {
+    beforeEach(()=> {
         customer = new Customer('customer');
         daysRented = 3;
     });

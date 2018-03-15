@@ -3,13 +3,13 @@
 const Movie = require('../movie');
 
 class NewRelease extends Movie {
-    constructor(name) {
-        super(name);
-        this.amount = 3;
+    constructor(title) {
+        super(title);
+        this.initialCharge = 3;
     }
 
     getAmount(daysRented) {
-        return daysRented * this.amount;
+        return daysRented * this.initialCharge;
     }
 
     getPoints(daysRented) {

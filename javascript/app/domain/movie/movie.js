@@ -1,15 +1,10 @@
 'use strict';
 
 class Movie {
-    constructor(title, priceCode) {
+    constructor(title) {
         this.title = title;
         this.points = -1;
-        this.amount = -1;
-    }
-
-
-    getPriceCode() {
-        return this.priceCode;
+        this.initialCharge = -1;
     }
 
     getTitle() {
@@ -17,7 +12,7 @@ class Movie {
     }
 
     getAmount() {
-        return this.amount;
+        return this.initialCharge;
     }
 
     getPoints() {

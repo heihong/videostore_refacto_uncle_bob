@@ -7,7 +7,7 @@ let Rental = require('../app/domain/rental/rental');
 describe('Children', function () {
     let customer, children, daysRented, rental;
 
-    beforeEach('initialize common variables', function () {
+    beforeEach(()=> {
         customer = new Customer("Customer");
         children = new Children("Children");
         daysRented = 3;
