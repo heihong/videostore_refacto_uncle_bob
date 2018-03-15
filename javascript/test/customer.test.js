@@ -4,7 +4,7 @@ const Customer = require('../app/domain/customer/customer');
 const NewRelease = require('../app/domain/movie/types/newRelease');
 let Rental = require('../app/domain/rental/rental');
 
-describe('Customer', function () {
+describe('Test class Customer when you rent one movie for 3 day', function () {
 
     let customer, newRealese, daysRented, rental;
 
@@ -17,24 +17,24 @@ describe('Customer', function () {
         customer.addRental(rental);
     });
 
-    it('test getName', function () {
+    it('should return the name of customer', function () {
 
-        assert.equal('customer', customer.getName(), 'should be equal')
+        assert.equal('customer', customer.getName())
     })
 
-    it('test addRental and getRentals', function () {
+    it('should have one rental', function () {
 
-        assert.equal(1, customer.getRentals().length, 'should have one rental')
+        assert.equal(1, customer.getRentals().length)
     })
 
-    it('test getTotalAmount', function () {
+    it('should return 9 total amount', function () {
 
-        assert.equal(9, customer.getTotalAmount(), "should be equal");
+        assert.equal(9, customer.getTotalAmount());
     });
 
-    it('test getTotalPoints', function () {
+    it('should return 2 total amount', function () {
 
-        assert.equal(2, customer.getTotalPoints(), "should be equal");
+        assert.equal(2, customer.getTotalPoints());
     });
 
 

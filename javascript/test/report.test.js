@@ -4,7 +4,7 @@ let Rental = require('../app/domain/rental/rental');
 const Customer = require('../app/domain/customer/customer');
 const Regular = require('../app/domain/movie/types/regular');
 
-describe('Report', function () {
+describe(' Test class Report', function () {
     let report, customer, regular_1, daysRented_1, rental_1, regular_2, daysRented_2,
         rental_2, regular_3, daysRented_3, rental_3;
 
@@ -31,13 +31,13 @@ describe('Report', function () {
         customer.addRental(rental_3);
     });
 
-    it('test makeHeader', function () {
+    it('should return the header', function () {
         assert.equal("Rental Record for Customer\n",
             report.makeHeader(),
             'should be equal')
     });
 
-    it('test makeContainer', function () {
+    it('should return the container', function () {
 
         assert.equal("\tRegular_1\t2\n\tRegular_2\t2\n" +
             "\tRegular_3\t3.5\n",
@@ -45,7 +45,7 @@ describe('Report', function () {
             'should be equal')
     });
 
-    it('test makeFooter', function () {
+    it('should return the footer', function () {
         assert.equal(
             "You owed 7.5\n" +
             "You earned 3 frequent renter points \n",
@@ -53,7 +53,7 @@ describe('Report', function () {
             'should be equal')
     });
 
-    it('test makeStatement', function () {
+    it('should return report', function () {
         assert.equal("Rental Record for Customer\n" +
             "\tRegular_1\t2\n\tRegular_2\t2\n" +
             "\tRegular_3\t3.5\n" +
